@@ -25,8 +25,9 @@ jQuery(function($) {
 			uploads = {};
 		
 		var images = $el.find('.image-field');
-		
+
 		var directUploading = $cloudinary.length,
+				directUploading = 0,
 			imagePreviews = window.FileReader;
 		
 		// Generates the action string that processes deletion and removal of images
@@ -132,7 +133,7 @@ jQuery(function($) {
 		
 		// Placeholders
 		var renderPlaceholder = function() {
-			
+
 			var imageFieldHTML = '<div class="image-field row col-sm-3 col-md-12">' +
 				'<div class="image-preview"><div class="img-thumbnail placeholder-wrap"><img class="placeholder' + ( !imagePreviews ? ' no-preview' : '' ) + '" /><div class="glyphicon ion-upload img-uploading"></div></div></div>' +
 				'<div class="image-details"><a href="javascript:;" class="btn btn-link btn-cancel btn-undo-upload">Cancel</a></div>' +
@@ -144,7 +145,7 @@ jQuery(function($) {
 		
 		// File Reader
 		var readFiles = function(files, callback) {
-			
+
 			var $files = [];
 			
 			var setupPlaceholder = function(file, e) {
@@ -235,7 +236,7 @@ jQuery(function($) {
 		
 		// Direct Uploading
 		if (directUploading) {
-			
+
 			$imageUpload.click(function() {
 				$el.find('input[type=file].field-upload').click(); // Needs to be referenced every time
 			});

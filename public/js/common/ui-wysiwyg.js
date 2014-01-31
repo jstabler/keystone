@@ -25,6 +25,20 @@ jQuery(function($) {
 
 	toolbar += ' | code';
 
+	var imagelist = [],
+			imagelength = $('.image-preview a').length;
+	$('.image-preview a').each(function(i) {
+		var filehref = $(this).attr('href');
+				imagelist.push({
+					title: filehref.split('/')[3],
+					value: filehref
+				});
+		if (i+1 === imagelength) {
+			initit();
+		}
+	});
+	imagelist = JSON.stringify(imagelist);
+
 	//init editable wysiwygs
 	tinymce.init({
 		selector: 'textarea.wysiwyg',
@@ -32,7 +46,8 @@ jQuery(function($) {
 		plugins: plugins,
 		toolbar: toolbar,
 		skin: 'keystone',
-		uploadimage_form_url: '/keystone/api/cloudinary/upload'
+		uploadimage_form_url: '/keystone/api/cloudinary/upload',
+		image_list: imagelist
 	});
 
 	//init non-editable wysiwygs
