@@ -6,7 +6,6 @@ jQuery(function($) {
 	
 		var $el = $(this),
 			data = $el.data();
-			console.log(data);
 		
 		var $action = $el.find('.field-action'),
 			$upload = $el.find('.field-upload');

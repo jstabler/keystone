@@ -1,5 +1,4 @@
 - var hasImages = item.get(field.path).length
-p #{hasImages} test
 .field.type-cloudinaryimages(data-field-type=field.type, data-field-path=field.path, data-field-paths-upload=field.paths.upload, data-field-paths-uploads=field.paths.uploads, data-field-collapse=field.collapse ? 'true' : false, data-field-depends-on=field.dependsOn, data-field-noedit=field.noedit ? 'true' : 'false', data-field-value=hasImages ? 'true' : 'false')
   label.field-label= field.label
   input(type='hidden', name=field.paths.action, value='').field-action

@@ -29,25 +29,26 @@ jQuery(function($) {
 			imagelength = $('.image-preview a').length;
 	$('.image-preview a').each(function(i) {
 		var filehref = $(this).attr('href');
-				imagelist.push({
-					title: filehref.split('/')[3],
-					value: filehref
-				});
+				// if (imagelist.length != 0) {
+		imagelist.push({
+			title: filehref.split('/')[3],
+			value: filehref
+		});
+				// }
+				
 		if (i+1 === imagelength) {
 			initit();
 		}
 	});
 	imagelist = JSON.stringify(imagelist);
 
-	//init editable wysiwygs
+	// init editable wysiwygs
 	tinymce.init({
 		selector: 'textarea.wysiwyg',
 		menubar: false,
 		plugins: plugins,
 		toolbar: toolbar,
-		skin: 'keystone',
-		uploadimage_form_url: '/keystone/api/cloudinary/upload',
-		image_list: imagelist
+		skin: 'keystone'
 	});
 
 	//init non-editable wysiwygs
@@ -61,6 +62,17 @@ jQuery(function($) {
 		statusbar: false,
 		skin: 'keystone'
 	});
+
+	function initit(){
+		tinymce.init({
+			selector: 'textarea.wysiwyg',
+			menubar: false,
+			plugins: [ 'code', 'link', 'images' ],
+			toolbar: 'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link images | code',
+			skin: 'keystone',
+			image_list: imagelist
+		});
+	} 
 
 
 });
