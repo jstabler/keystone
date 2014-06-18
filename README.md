@@ -1,8 +1,14 @@
 ![KeystoneJS](http://keystonejs.com/images/logo.svg)
 ===================================
 
-![Build Status](https://travis-ci.org/JedWatson/keystone.svg)
+### Forked Info
+Created to allow custom field types to be loaded from `root_dir/models/customFieldTypes`. Also forced load of cloudinaryimage/cloudinaryimages js for uploading images.
 
+```
+  image: { type: CusTypes.Photo },
+  images: { type: CusTypes.Photos },
+```
+### Keystone Info
 [KeystoneJS](http://keystonejs.com) is a powerful new Node.js content management system and web app framework built on [express](http://expressjs.com) and [mongoose](http://mongoosejs.com) that makes it easy to create sophisticated web sites and apps, and gives you a beautiful, auto-generated Admin UI.
 
 To get started, check out [keystonejs.com](http://keystonejs.com)!
